@@ -1,0 +1,90 @@
+.header {
+  height: 65rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+
+  opacity: 0;
+  animation: startup_header 1s 2s forwards;
+
+  @keyframes startup_header {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.bime-box {
+  width: 82rem;
+  height: 38rem;
+  border-top: 4rem solid $color-primary;
+  border-radius: 1rem 1rem 3rem 3rem;
+  overflow: hidden;
+  margin-top: 5rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(max-content, 1fr));
+  justify-items: center;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-largest) {
+    width: 65rem;
+  }
+
+  & > *:not(:nth-child(4n)) {
+    border-right: 0.3rem solid $color-primary;
+  }
+
+  & > *:nth-child(-n + 4) {
+    border-bottom: 0.3rem solid $color-primary;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color-gray-light-1, 0.7);
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      & > * {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__img {
+    width: 8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  &__text {
+    width: 100%;
+    text-align: center;
+    color: $color-primary;
+    font-weight: 1000;
+    font-size: 1.6rem;
+  }
+}
+
+.wave-bac-solid {
+  width: 100%;
+  position: absolute;
+  bottom: -20%;
+  left: 0;
+}
+
+.wave-bac-transparent {
+  width: 100%;
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+}
